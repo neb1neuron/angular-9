@@ -1,17 +1,12 @@
 version: 2
-orbs:
-  node: circleci/node@1.1.6
 jobs:
   build:
-    executor:
-      name: node/default
+    working_directory: ~/my-project
+    docker:
+      - image: circleci/node:8-browsers
     steps:
       - checkout
-      - node/with-cache:
-          steps:
-            - run: npm install
-  test:
-    steps:
+      - run: npm install
       - run: npm test
 workflows:
   version: 2
@@ -21,8 +16,3 @@ workflows:
           filters:
             branches:
               only: development
-      - test:
-          filters:
-              branches:
-                only: development
-        
