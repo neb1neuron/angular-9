@@ -17,11 +17,11 @@ workflows:
     build-and-test:
       jobs:
         - build
-          filters:
-            branches:
-              only: development
-        - test
-          filters:
+            filters:
               branches:
                 only: development
+        - test
+            filters:
+                branches:
+                  only: development
         
