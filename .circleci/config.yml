@@ -9,7 +9,7 @@ jobs:
       - run: npm install
       - run: npm run lint
       - run: npm run build --prod
-workflows
+workflows:
   version: 2
   build-and-test:
     jobs:
